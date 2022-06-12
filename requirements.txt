@@ -4,3 +4,4 @@ pytest
 pytest-cov
 typing_extensions
 xmltodict
+cffi
