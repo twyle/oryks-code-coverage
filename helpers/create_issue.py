@@ -2,6 +2,7 @@
 """This module creates and executes the GitHub Action Code that shows code coverage."""
 import os
 from pprint import pprint
+import cffi
 
 from github import Github
 
