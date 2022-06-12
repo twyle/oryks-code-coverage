@@ -11,14 +11,19 @@ username = repository.split('/')[0]
 repository_name = repository.split('/')[-1]
 
 
-def create_issue():
+def create_issue(test_output):
     """
     Step 1.
 
     Create contents for the issue you want to post
     """
     headers = {"Authorization": f"token {token}"}
-    data = {"title": "Found a bug"}
+    data = {
+        "title": "Found a bug",
+        "body": test_output,
+        "assignee": username,
+        "labels": ['bug']
+    }
 
     """
     Step 2:

@@ -52,7 +52,7 @@ def main():
             test_coverage = json.dumps(data_dict)
             print(f"::set-output name=TESTCOVERAGE::{test_coverage}")
 
-    create_issue()
+    create_issue(test_output)
 
 
 if __name__ == "__main__":
