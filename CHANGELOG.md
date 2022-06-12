@@ -1,3 +1,13 @@
+## v0.6.0 (2022-06-12)
+
+### Feat
+
+- using the values from github.
+
+### Fix
+
+- using v0.5.0
+
 ## v0.5.0 (2022-06-12)
 
 ### Feat
