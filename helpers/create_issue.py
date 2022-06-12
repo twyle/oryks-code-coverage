@@ -1,33 +1,32 @@
 # -*- coding: utf-8 -*-
-"""This module creates and executes the GitHub Action Code that shows code coverage."""
+"""Module doctsring."""
+import json
 import os
-from pprint import pprint
-import cffi
 
-from github import Github
+import requests
+
+token = os.environ['INPUT_GITHUB_TOKEN']
 
 
 def create_issue():
-    """Create an issue on GitHub."""
-    owner = "twyle"
-    repo = "flask-social-auth"
+    """
+    Step 1.
 
-    token = os.getenv('INPUT_GITHUB_TOKEN')
+    Create contents for the issue you want to post
+    """
+    headers = {"Authorization": f"token {token}"}
+    data = {"title": "Found a bug"}
 
-    g = Github(token)
+    """
+    Step 2:
+    Generate your target repository's URL using Github API
+    """  # pylint: disable=W0105
+    username = 'twyle'
+    Repositoryname = 'flask-social-auth'
+    url = f"https://api.github.com/repos/{username}/{Repositoryname}/issues"
 
-    repo = g.get_repo(f"{owner}/{repo}")
-
-    i = repo.create_issue(
-        title="Issue Title",
-        body="Text of the body.",
-        assignee=owner,
-        labels=[
-            repo.get_label("good first issue")
-        ]
-    )
-
-    pprint(i)
-
-    issues = repo.get_issues(state="open")
-    pprint(issues.get_page(0))
+    """
+    Step 3:
+    Post your issue message using requests and json
+    """  # pylint: disable=W0105
+    requests.post(url, data=json.dumps(data), headers=headers)

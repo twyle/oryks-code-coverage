@@ -2,6 +2,6 @@ importlib_metadata
 PyGithub
 pytest
 pytest-cov
+requests
 typing_extensions
 xmltodict
-cffi
