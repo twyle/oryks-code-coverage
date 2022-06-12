@@ -7,7 +7,7 @@ from os.path import exists
 
 import xmltodict
 
-from .helpers.create_issue import create_issue
+from helpers.create_issue import create_issue
 
 
 def main():
