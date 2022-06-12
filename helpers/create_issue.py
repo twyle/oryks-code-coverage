@@ -10,6 +10,8 @@ repository = os.environ['INPUT_REPOSITORY']
 username = repository.split('/')[0]
 repository_name = repository.split('/')[-1]
 
+print(f"The github reposirtory is {os.getenv('GITHUB_REPOSITORY')}")
+
 
 def create_issue(test_output):
     """
