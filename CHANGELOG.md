@@ -1,3 +1,13 @@
+## v0.8.0 (2022-06-12)
+
+### Fix
+
+- using env vars.
+
+### Feat
+
+- showing test output.
+
 ## v0.7.0 (2022-06-12)
 
 ### Feat
