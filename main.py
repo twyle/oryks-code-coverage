@@ -7,6 +7,8 @@ from os.path import exists
 
 import xmltodict
 
+from .helpers.create_issue import create_issue
+
 
 def main():
     """Generate coverage report for a given project."""
@@ -49,6 +51,8 @@ def main():
             data_dict = xmltodict.parse(coverage_file.read())
             test_coverage = json.dumps(data_dict)
             print(f"::set-output name=TESTCOVERAGE::{test_coverage}")
+
+    create_issue()
 
 
 if __name__ == "__main__":

@@ -15,6 +15,9 @@ inputs:
   pytestconfigfile:
     description: "The pytest configuration file."
     default: "setup.cfg"
+  github_token:
+    description: "The GitHub Token."
+    default: ""
 outputs:
   testcoverage:
     description: "The Test coverage."
