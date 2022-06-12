@@ -23,18 +23,20 @@ def create_markdown():
     r = requests.post(query_url, headers=headers, data=json.dumps(data))
     pprint(r)
     pprint(r.text)
+    return r.text
 
 
-def create_issue(test_output):
+def create_issue(test_output):  # pylint: disable=W0613
     """
     Step 1.
 
     Create contents for the issue you want to post
     """
+    issue_body = create_markdown()
     headers = {"Authorization": f"token {token}"}
     data = {
         "title": "Found a bug",
-        "body": test_output,
+        "body": issue_body,
         "assignee": username,
         "labels": ['bug']
     }
