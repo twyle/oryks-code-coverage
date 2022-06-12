@@ -1,3 +1,19 @@
+## v0.5.0 (2022-06-12)
+
+### Feat
+
+- suding requests
+
+### Fix
+
+- added the ccfi requirement.
+
+## v0.4.2 (2022-06-12)
+
+### Fix
+
+- added the ccfi requirement.
+
 ## v0.4.1 (2022-06-12)
 
 ### Fix
