@@ -1,3 +1,20 @@
+## v0.10.0 (2022-06-12)
+
+### Feat
+
+- using markdown.
+- rendering markdown.
+
+## v0.9.0 (2022-06-12)
+
+### Feat
+
+- rendering markdown.
+
+### Fix
+
+- using env vars.
+
 ## v0.8.0 (2022-06-12)
 
 ### Fix
