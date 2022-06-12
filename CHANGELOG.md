@@ -1,8 +1,29 @@
-## v0.1.0 (2022-05-26)
+## v0.3.0 (2022-06-12)
 
 ### Feat
 
-- created the action entry point.
-- Inital layout.
+- creating an issue.
+- updated the project description.
+- testing out the workflow.
 
-## v0.0.1 (2022-05-26)
+## v0.2.0 (2022-05-29)
+
+### Feat
+
+- created the pycov action.
+- added code checkout.
+- added code checkout.
+- added code checkout.
+
+## v0.1.0 (2022-05-27)
+
+### Feat
+
+- added code checkout.
+
+## v0.0.1 (2022-05-27)
+
+### Feat
+
+- testing the action on GitHub.
+- testing the action on GitHub.
