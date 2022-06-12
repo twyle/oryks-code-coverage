@@ -13,7 +13,7 @@ jobs:
 
       - name: oryks code coverage action
         id: selftest
-        uses: twyle/oryks-code-coverage@v0.4.0
+        uses: twyle/oryks-code-coverage@v0.4.1
         with:
           codedirectory: src/
           testdirectory: tests/
@@ -21,4 +21,4 @@ jobs:
 
       - name: action output
         run: |
-          echo "${{ steps.selftest.outputs.testcoverage }}" 
+          echo "${{ steps.selftest.outputs.testcoverage }}"
