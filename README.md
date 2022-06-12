@@ -1,6 +1,6 @@
 # oryks-code-coverage 
 
-> This GitHub Action shows Code Coverage for a given project. 
+> This GitHub Action shows Code Coverage for a given project.  
 
 [![security: bandit][bandit-image]][bandit-url]
 [![Imports: isort][isort-image]][isort-url]
