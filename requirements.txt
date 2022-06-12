@@ -1,5 +1,4 @@
 importlib_metadata
-PyGithub
 pytest
 pytest-cov
 requests

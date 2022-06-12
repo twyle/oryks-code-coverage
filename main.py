@@ -4,8 +4,9 @@ import json
 import os
 import subprocess
 from os.path import exists
+from pprint import pprint
 
-import xmltodict
+import requests
 
 from helpers.create_issue import create_issue
 
@@ -36,7 +37,7 @@ def main():
     else:
         code_directory = '.'
         test_directory = 'tests/'
-        print(f'The code directory is {code_directory} and test directory is {test_directory}')
+        # print(f'The code directory is {code_directory} and test directory is {test_directory}')
         p = subprocess.run(["python", "-m", "pytest", f"--cov={code_directory}",
                             test_directory], capture_output=True, text=True, check=True)
         subprocess.run(["python", "-m", "pytest", "--cov-report=xml",
@@ -44,15 +45,11 @@ def main():
 
     test_output = p.stdout
 
-    print(test_output)
-
-    if exists('coverage.xml'):
-        with open('coverage.xml', encoding='utf-8') as coverage_file:
-            data_dict = xmltodict.parse(coverage_file.read())
-            test_coverage = json.dumps(data_dict)
-            print(f"::set-output name=TESTCOVERAGE::{test_coverage}")
+    # print(test_output)
 
     create_issue(test_output)
+
+    print(f"::set-output name=TESTCOVERAGE::{test_output}")
 
 
 if __name__ == "__main__":

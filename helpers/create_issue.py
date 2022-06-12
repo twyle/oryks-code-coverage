@@ -3,7 +3,6 @@
 import json
 import os
 from pprint import pprint
-from re import X
 
 import requests
 
@@ -13,27 +12,28 @@ username = repository.split('/')[0]
 repository_name = repository.split('/')[-1]
 
 
-def create_markdown():
+def create_markdown_string(test_output):
+    """Create the markdown string."""
+    markdown_string = """"""
+    test_output_split = test_output.split('\n')
+    for line in test_output_split[3:]:
+        line = f"| {line} |\n"
+        markdown_string += line
+
+    return markdown_string
+
+
+def create_markdown(markdown_string):
     """Create the markdown for the issue."""
     query_url = "https://api.github.com/markdown"
 
-    method = 'GET'
-    description = 'Get the home page'
-
-    data_string = f"""
-        | Route       | Method      | Description      |
-        | ----------- | ----------- |----------------- |
-        | '/'         | {method}         | {description} |
-    """
-
     data = {
-        "text": data_string,
+        "text": markdown_string,
         "mode": "markdown",
     }
     headers = {'Authorization': f'token {token}'}
     r = requests.post(query_url, headers=headers, data=json.dumps(data))
-    pprint(r)
-    pprint(r.text)
+
     return r.text
 
 
@@ -43,7 +43,8 @@ def create_issue(test_output):  # pylint: disable=W0613
 
     Create contents for the issue you want to post
     """
-    issue_body = create_markdown()
+    markdown_string = create_markdown_string(test_output)
+    issue_body = create_markdown(markdown_string)
     headers = {"Authorization": f"token {token}"}
     data = {
         "title": "Found a bug",
@@ -62,6 +63,8 @@ def create_issue(test_output):  # pylint: disable=W0613
     Step 3:
     Post your issue message using requests and json
     """  # pylint: disable=W0105
-    requests.post(url, data=json.dumps(data), headers=headers)
+    res = requests.post(url, data=json.dumps(data), headers=headers)
 
-    create_markdown()
+    print(res.status_code)
+
+    pprint(issue_body)
