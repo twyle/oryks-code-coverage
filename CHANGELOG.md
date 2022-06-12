@@ -1,3 +1,10 @@
+## v0.4.1 (2022-06-12)
+
+### Fix
+
+- added the ccfi requirement.
+- updated the version.
+
 ## v0.4.0 (2022-06-12)
 
 ### Fix
