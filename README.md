@@ -1,4 +1,4 @@
-# oryks-code-coverage
+# oryks-code-coverage 
 
 > This GitHub Action shows Code Coverage for a given project.
 
