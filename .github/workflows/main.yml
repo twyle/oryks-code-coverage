@@ -17,7 +17,8 @@ jobs:
         with:
           codedirectory: src/
           testdirectory: tests/
-          github_token: ${{ secrets.ORYKS_TOKEN }}
+          github_token: ${{ github.token }}
+          repository: ${{ github.repository }}
 
       - name: action output
         run: |

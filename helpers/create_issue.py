@@ -6,6 +6,9 @@ import os
 import requests
 
 token = os.environ['INPUT_GITHUB_TOKEN']
+repository = os.environ['INPUT_REPOSITORY']
+username = repository.split('/')[0]
+repository_name = repository.split('/')[-1]
 
 
 def create_issue():
@@ -21,9 +24,7 @@ def create_issue():
     Step 2:
     Generate your target repository's URL using Github API
     """  # pylint: disable=W0105
-    username = 'twyle'
-    Repositoryname = 'flask-social-auth'
-    url = f"https://api.github.com/repos/{username}/{Repositoryname}/issues"
+    url = f"https://api.github.com/repos/{username}/{repository_name}/issues"
 
     """
     Step 3:
