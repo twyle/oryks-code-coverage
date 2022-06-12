@@ -2,15 +2,27 @@
 """Module doctsring."""
 import json
 import os
+from pprint import pprint
 
 import requests
 
 token = os.environ['INPUT_GITHUB_TOKEN']
-repository = os.environ['INPUT_REPOSITORY']
+repository = os.environ['GITHUB_REPOSITORY']
 username = repository.split('/')[0]
 repository_name = repository.split('/')[-1]
 
-print(f"The github reposirtory is {os.getenv('GITHUB_REPOSITORY')}")
+
+def create_markdown():
+    """Create the markdown for the issue."""
+    query_url = "https://api.github.com/markdown"
+    data = {
+        "text": "`code`, _italics_, **bold**",
+        "mode": "markdown",
+    }
+    headers = {'Authorization': f'token {token}'}
+    r = requests.post(query_url, headers=headers, data=json.dumps(data))
+    pprint(r)
+    pprint(r.text)
 
 
 def create_issue(test_output):
@@ -38,3 +50,5 @@ def create_issue(test_output):
     Post your issue message using requests and json
     """  # pylint: disable=W0105
     requests.post(url, data=json.dumps(data), headers=headers)
+
+    create_markdown()

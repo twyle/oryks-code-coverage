@@ -18,7 +18,6 @@ jobs:
           codedirectory: src/
           testdirectory: tests/
           github_token: ${{ github.token }}
-          repository: ${{ github.repository }}
 
       - name: action output
         run: |
