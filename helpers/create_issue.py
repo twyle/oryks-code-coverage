@@ -3,6 +3,7 @@
 import json
 import os
 from pprint import pprint
+from re import X
 
 import requests
 
@@ -15,8 +16,15 @@ repository_name = repository.split('/')[-1]
 def create_markdown():
     """Create the markdown for the issue."""
     query_url = "https://api.github.com/markdown"
+
+    data_string = """
+        | Route       | Method      | Description      |
+        | ----------- | ----------- |----------------- |
+        | '/'         | GET         | Get the home page |
+    """
+
     data = {
-        "text": "`code`, _italics_, **bold**",
+        "text": data_string,
         "mode": "markdown",
     }
     headers = {'Authorization': f'token {token}'}
