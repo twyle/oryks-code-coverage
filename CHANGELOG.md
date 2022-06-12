@@ -1,3 +1,14 @@
+## v0.4.0 (2022-06-12)
+
+### Fix
+
+- fixed the module import.
+- updated the repo token.
+
+### Feat
+
+- creating an issue.
+
 ## v0.3.0 (2022-06-12)
 
 ### Feat
