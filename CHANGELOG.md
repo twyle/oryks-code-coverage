@@ -1,3 +1,13 @@
+## v0.7.0 (2022-06-12)
+
+### Feat
+
+- showing test output.
+
+### Fix
+
+- using v0.6.0
+
 ## v0.6.0 (2022-06-12)
 
 ### Feat
