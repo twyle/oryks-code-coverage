@@ -17,10 +17,13 @@ def create_markdown():
     """Create the markdown for the issue."""
     query_url = "https://api.github.com/markdown"
 
-    data_string = """
+    method = 'GET'
+    description = 'Get the home page'
+
+    data_string = f"""
         | Route       | Method      | Description      |
         | ----------- | ----------- |----------------- |
-        | '/'         | GET         | Get the home page |
+        | '/'         | {method}         | {description} |
     """
 
     data = {
