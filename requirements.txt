@@ -1,6 +1,7 @@
 importlib_metadata
+pandas
 pytest
 pytest-cov
 requests
+tabulate
 typing_extensions
-xmltodict

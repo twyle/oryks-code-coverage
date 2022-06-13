@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 """This module creates and executes the GitHub Action Code that shows code coverage."""
-import json
 import os
 import subprocess
 from os.path import exists
 from pprint import pprint
-
-import requests
 
 from helpers.create_issue import create_issue
 
@@ -45,11 +42,10 @@ def main():
 
     test_output = p.stdout
 
-    # print(test_output)
-
-    create_issue(test_output)
-
-    print(f"::set-output name=TESTCOVERAGE::{test_output}")
+    if create_issue(test_output):
+        print("::set-output name=TESTCOVERAGE::true")
+    else:
+        print("::set-output name=TESTCOVERAGE::false")
 
 
 if __name__ == "__main__":

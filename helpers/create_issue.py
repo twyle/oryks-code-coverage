@@ -4,6 +4,7 @@ import json
 import os
 from pprint import pprint
 
+import pandas as pd
 import requests
 
 token = os.environ['INPUT_GITHUB_TOKEN']
@@ -12,29 +13,27 @@ username = repository.split('/')[0]
 repository_name = repository.split('/')[-1]
 
 
-def create_markdown_string(test_output):
+def create_df(test_output):
+    """Create df from test output."""
+    all_lines = []
+    for line in test_output.split('\n')[3:-2]:
+        non_empty_tokens = []
+        for word_token in line.split(' '):
+            if word_token:
+                non_empty_tokens.append(word_token)
+        # print(non_empty_tokens)
+        if len(non_empty_tokens) > 1:
+            all_lines.append(non_empty_tokens)
+    # print(all_lines)
+    df = pd.DataFrame(all_lines)
+    # pprint(df)
+    return df
+
+
+def create_markdown_string(df):
     """Create the markdown string."""
-    markdown_string = """"""
-    test_output_split = test_output.split('\n')
-    for line in test_output_split[3:]:
-        line = f"| {line} |\n"
-        markdown_string += line
-
+    markdown_string = df.to_markdown()
     return markdown_string
-
-
-def create_markdown(markdown_string):
-    """Create the markdown for the issue."""
-    query_url = "https://api.github.com/markdown"
-
-    data = {
-        "text": markdown_string,
-        "mode": "markdown",
-    }
-    headers = {'Authorization': f'token {token}'}
-    r = requests.post(query_url, headers=headers, data=json.dumps(data))
-
-    return r.text
 
 
 def create_issue(test_output):  # pylint: disable=W0613
@@ -43,8 +42,8 @@ def create_issue(test_output):  # pylint: disable=W0613
 
     Create contents for the issue you want to post
     """
-    markdown_string = create_markdown_string(test_output)
-    issue_body = create_markdown(markdown_string)
+    df = create_df(test_output)
+    issue_body = create_markdown_string(df)
     headers = {"Authorization": f"token {token}"}
     data = {
         "title": "Found a bug",
@@ -65,6 +64,7 @@ def create_issue(test_output):  # pylint: disable=W0613
     """  # pylint: disable=W0105
     res = requests.post(url, data=json.dumps(data), headers=headers)
 
-    print(res.status_code)
+    if res.status_code == 201:
+        return True
 
-    pprint(issue_body)
+    return False
