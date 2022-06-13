@@ -14,8 +14,6 @@ This GitHub Action shows code Coverage for a given python project using Pytest C
 
 ![](oryks-coverage-run.png)
 
-This action shows code coverage using pytest coverage. To read about how it was developed, check out [How To Create a GitHub Action that Shows Code Coverage using Pytest](https://medium.com/@lyle-okoth/creating-a-pytest-github-action-that-shows-code-coverage-b0d11655b748).
-
 ## Inputs
 
 ## `codedirectory`
