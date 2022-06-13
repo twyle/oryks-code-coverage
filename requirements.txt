@@ -1,4 +1,5 @@
 importlib_metadata
+numpy
 pandas
 pytest
 pytest-cov
