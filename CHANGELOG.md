@@ -1,3 +1,9 @@
+## v0.16.0 (2022-06-13)
+
+### Feat
+
+- updated the project description.
+
 ## v0.15.0 (2022-06-13)
 
 ### Feat
