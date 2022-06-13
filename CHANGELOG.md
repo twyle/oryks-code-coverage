@@ -1,3 +1,9 @@
+## v0.14.1 (2022-06-13)
+
+### Fix
+
+- added the numpy dependancy.
+
 ## v0.14.0 (2022-06-13)
 
 ### Feat
