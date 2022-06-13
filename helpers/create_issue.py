@@ -2,7 +2,6 @@
 """Module doctsring."""
 import json
 import os
-from pprint import pprint
 
 import pandas as pd
 import requests
@@ -21,12 +20,9 @@ def create_df(test_output):
         for word_token in line.split(' '):
             if word_token:
                 non_empty_tokens.append(word_token)
-        # print(non_empty_tokens)
         if len(non_empty_tokens) > 1:
             all_lines.append(non_empty_tokens)
-    # print(all_lines)
     df = pd.DataFrame(all_lines)
-    # pprint(df)
     return df
 
 

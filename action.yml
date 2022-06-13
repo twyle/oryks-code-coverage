@@ -20,7 +20,7 @@ inputs:
     default: ""
 outputs:
   testcoverage:
-    description: "The Test coverage."
+    description: "Whether or not the action was successful."
 runs:
   using: "docker"
   image: "Dockerfile"
