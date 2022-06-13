@@ -33,6 +33,9 @@ This action shows code coverage using pytest coverage. To read about how it was 
 ## `pytestconfigfile`
 
 **Optional** The pytest configuration file. Default `"setup.cfg"`.
+## `github_token`
+
+**Required** The GitHub Token. Default `"${{ github.token }}"`.
 
 ## Outputs
 
@@ -44,7 +47,7 @@ The Test coverage
 ```
 - name: oryks code coverage action
   id: selftest
-  uses: twyle/oryks-code-coverage@v1.0.0
+  uses: twyle/oryks-code-coverage@v0.16.0
   with:
     codedirectory: src/
     testdirectory: tests/
