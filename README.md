@@ -33,6 +33,9 @@ This GitHub Action shows code Coverage for a given python project using Pytest C
 ## `pytestconfigfile`
 
 **Optional** The pytest configuration file. Default `"setup.cfg"`.
+## `github_token`
+
+**Required** The GitHub Token. Default `"${{ github.token }}"`.
 
 ## `github_token`
 
