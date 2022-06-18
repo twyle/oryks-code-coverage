@@ -37,6 +37,14 @@ This GitHub Action shows code Coverage for a given python project using Pytest C
 
 **Required** The GitHub Token. Default `"${{ github.token }}"`.
 
+## `github_token`
+
+**Required** The GitHub Token. Default `"."`.
+
+## `oryks_token`
+
+**Required** The Code Coverage. Default `"."`
+
 ## Outputs
 
 ## `testcoverage`
@@ -47,11 +55,12 @@ The Test coverage
 ```
 - name: oryks code coverage action
   id: selftest
-  uses: twyle/oryks-code-coverage@v0.16.0
+  uses: twyle/oryks-code-coverage@v0.17.1
   with:
     codedirectory: src/
     testdirectory: tests/
     github_token: ${{ github.token }}
+    oryks_token: ${{ secrets.ORYKS_TOKEN }}
 
 - name: action output
   run: |

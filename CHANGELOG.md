@@ -1,3 +1,9 @@
+## v0.17.1 (2022-06-18)
+
+### Fix
+
+- fixed the oryks token access string.
+
 ## v0.17.0 (2022-06-18)
 
 ### Feat
