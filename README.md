@@ -2,6 +2,8 @@
 
 > This GitHub Action shows Code Coverage for a given project.
 
+
+![Custom badge](https://img.shields.io/endpoint?style=flat-square&url=https%3A%2F%2Foryks-code-coverage-dev.herokuapp.com%2Fapi%2Fbadge)
 [![security: bandit][bandit-image]][bandit-url]
 [![Imports: isort][isort-image]][isort-url]
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
