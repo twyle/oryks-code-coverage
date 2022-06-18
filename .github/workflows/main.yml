@@ -13,11 +13,12 @@ jobs:
 
       - name: oryks code coverage action
         id: selftest
-        uses: twyle/oryks-code-coverage@v0.16.0
+        uses: twyle/oryks-code-coverage@v0.17.1
         with:
           codedirectory: src/
           testdirectory: tests/
           github_token: ${{ github.token }}
+          oryks_token: ${{ secrets.ORYKS_TOKEN }}
 
       - name: action output
         run: |

@@ -14,7 +14,7 @@ build:
 	@sudo docker build -t twyle/oryks-code-coverage:latest .
 
 run:
-	@sudo docker run --env INPUT_CODEDIRECTORY=src/ --env INPUT_TESTDIRECTORY=tests/ ${imageid}
+	@sudo docker run twyle/oryks-code-coverage:latest
 
 images:
 	@sudo docker images
