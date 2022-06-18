@@ -49,6 +49,19 @@ def divide(x: int, y: int) -> float:
                     y (int): second number in the division
 
     Returns:
-                    int: dividend of x and y
+                    float: dividend of x and y
     """
     return x / y
+
+
+def power_of(x: int, y: int) -> float:
+    """Raise the firtst number to the second.
+
+    Args:
+                    x (int): first number
+                    y (int): second number
+
+    Returns:
+                    int: result of x raised to y
+    """
+    return x ** y

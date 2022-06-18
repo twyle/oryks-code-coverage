@@ -32,6 +32,8 @@ def main():
 
     test_output = p.stdout
 
+    print(test_output)
+
     if create_issue(test_output):
         print("::set-output name=TESTCOVERAGE::true")
         upload_data(test_output)
