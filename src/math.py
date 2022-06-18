@@ -39,3 +39,16 @@ def multiply(x: int, y: int) -> int:
                     int: product of x and y
     """
     return x * y
+
+
+def divide(x: int, y: int) -> float:
+    """Divide two numbers together.
+
+    Args:
+                    x (int): first number in the division
+                    y (int): second number in the division
+
+    Returns:
+                    int: dividend of x and y
+    """
+    return x / y
