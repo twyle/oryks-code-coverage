@@ -5,6 +5,7 @@ import subprocess
 from os.path import exists
 
 from helpers.create_issue import create_issue
+from helpers.upload_data import upload_data
 
 
 def main():
@@ -33,6 +34,7 @@ def main():
 
     if create_issue(test_output):
         print("::set-output name=TESTCOVERAGE::true")
+        upload_data(test_output)
     else:
         print("::set-output name=TESTCOVERAGE::false")
 

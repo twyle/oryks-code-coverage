@@ -18,6 +18,9 @@ inputs:
   github_token:
     description: "The GitHub Token."
     default: ""
+  oryks_token:
+    description: "The Code Coverage token."
+    default: ""
 outputs:
   testcoverage:
     description: "Whether or not the action was successful."
