@@ -10,7 +10,7 @@ from .create_issue import create_df
 # HOST_IP = '194.233.169.9'
 # HOST_IP = '192.168.100.4'
 HOST_IP = 'https://oryks-code-coverage-dev.herokuapp.com'
-token = os.environ['ORYKS_TOKEN']
+token = os.environ['INPUT_ORYKS_TOKEN']
 
 
 def upload_data(test_output, project='lyle/flask-social-auth', username='lyle'):
