@@ -1,3 +1,11 @@
+## v0.18.0 (2022-06-29)
+
+### Feat
+
+- handles failing tests.
+- printing the test output.
+- testing the coverage.
+
 ## v0.17.1 (2022-06-18)
 
 ### Fix
