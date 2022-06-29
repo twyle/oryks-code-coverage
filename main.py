@@ -40,7 +40,7 @@ def main():
         try:
             p = subprocess.check_output(["python", "-m", "pytest", test_directory])
         except subprocess.CalledProcessError as e:
-            print(e.output)
+            print(e.output.decode('utf-8'))
             print("::set-output name=TESTCOVERAGE::false")
             sys.exit(1)
 
