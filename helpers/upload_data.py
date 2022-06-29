@@ -9,6 +9,7 @@ from .create_issue import create_df
 
 # HOST_IP = '194.233.169.9'
 HOST_IP = '192.168.100.4'
+run_number = os.environ['GITHUB_RUN_NUMBER']
 # HOST_IP = 'https://oryks-code-coverage-dev.herokuapp.com'
 token = os.environ['INPUT_ORYKS_TOKEN']
 
@@ -25,7 +26,8 @@ def upload_data(test_output, project='lyleokoth/flask-social-auth', username='ly
     data = {
         'user': {
             'project': project,
-            'username': username
+            'username': username,
+            'run_number': run_number
         },
         'data': test_df.to_json()
     }
