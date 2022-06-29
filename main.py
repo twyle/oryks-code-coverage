@@ -2,6 +2,7 @@
 """This module creates and executes the GitHub Action Code that shows code coverage."""
 import os
 import subprocess
+import sys
 from os.path import exists
 
 from helpers.create_issue import create_issue
@@ -15,20 +16,33 @@ def main():
     pycov_config_file = os.getenv('INPUT_PYCOVCONFIGFILE')
     pytest_config_file = os.getenv('INPUT_PYTESTCONFIGFILE')
 
-    if code_directory and test_directory:
-        p = subprocess.run(["python", "-m", "pytest", f"--cov={code_directory}",
-                            test_directory], capture_output=True, text=True, check=True)
-        if pycov_config_file:
-            p = subprocess.run(["python", "-m", "pytest", f"--cov-config={pycov_config_file}",
-                                f"--cov={code_directory}", test_directory], capture_output=True, text=True, check=True)
-        elif pytest_config_file:
-            p = subprocess.run(["python", "-m", "pytest", f"--cov-config={pytest_config_file}",
-                                f"--cov={code_directory}", test_directory], capture_output=True, text=True, check=True)
-    else:
-        code_directory = '.'
-        test_directory = 'tests/'
-        p = subprocess.run(["python", "-m", "pytest", f"--cov={code_directory}",
-                            test_directory], capture_output=True, text=True, check=True)
+    try:
+
+        if code_directory and test_directory:
+            p = subprocess.run(["python", "-m", "pytest", f"--cov={code_directory}",
+                                test_directory], capture_output=True, text=True, check=True)
+            if pycov_config_file:
+                p = subprocess.run(["python", "-m", "pytest", f"--cov-config={pycov_config_file}",
+                                    f"--cov={code_directory}", test_directory], capture_output=True, text=True,
+                                   check=True)
+            elif pytest_config_file:
+                p = subprocess.run(["python", "-m", "pytest", f"--cov-config={pytest_config_file}",
+                                    f"--cov={code_directory}", test_directory], capture_output=True, text=True,
+                                   check=True)
+        else:
+            code_directory = '.'
+            test_directory = 'tests/'
+            p = subprocess.run(["python", "-m", "pytest", f"--cov={code_directory}",
+                                test_directory], capture_output=True, text=True,
+                               check=True)
+
+    except subprocess.CalledProcessError:
+        try:
+            p = subprocess.check_output(["python", "-m", "pytest", test_directory])
+        except subprocess.CalledProcessError as e:
+            print(e.output)
+            print("::set-output name=TESTCOVERAGE::false")
+            sys.exit(1)
 
     test_output = p.stdout
 

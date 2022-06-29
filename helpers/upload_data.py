@@ -8,18 +8,18 @@ import requests
 from .create_issue import create_df
 
 # HOST_IP = '194.233.169.9'
-# HOST_IP = '192.168.100.4'
-HOST_IP = 'https://oryks-code-coverage-dev.herokuapp.com'
+HOST_IP = '192.168.100.4'
+# HOST_IP = 'https://oryks-code-coverage-dev.herokuapp.com'
 token = os.environ['INPUT_ORYKS_TOKEN']
 
 
-def upload_data(test_output, project='lyle/flask-social-auth', username='lyle'):
+def upload_data(test_output, project='lyleokoth/flask-social-auth', username='lyleokoth'):
     """Upload the test data to our servers."""
     test_df = create_df(test_output)
     # print(test_df)
 
-    url = f'{HOST_IP}/api/data'
-    # url = f'http://{HOST_IP}:5000/api/data'
+    # url = f'{HOST_IP}/api/data'
+    url = f'http://{HOST_IP}:5000/api/data'
     headers = {"Authorization": f"Bearer {token}"}
 
     data = {
@@ -32,8 +32,10 @@ def upload_data(test_output, project='lyle/flask-social-auth', username='lyle'):
 
     res = requests.post(url=url, json=json.dumps(data), headers=headers)
 
-    if res.status_code == 201:
+    if res.status_code in [201, 200]:
         # print(res.json())
         return True
 
+    # print(res.status_code)
+    # print(res.json())
     return False
