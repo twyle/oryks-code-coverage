@@ -50,7 +50,10 @@ def main():
 
     if create_issue(test_output):
         print("::set-output name=TESTCOVERAGE::true")
-        upload_data(test_output)
+        try:
+            upload_data(test_output)
+        except ConnectionError:
+            pass
     else:
         print("::set-output name=TESTCOVERAGE::false")
 
