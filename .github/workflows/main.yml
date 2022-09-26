@@ -13,7 +13,7 @@ jobs:
 
       - name: oryks code coverage action
         id: selftest
-        uses: twyle/oryks-code-coverage@v0.17.1
+        uses: twyle/oryks-code-coverage@v0.1.0
         with:
           codedirectory: src/
           testdirectory: tests/
