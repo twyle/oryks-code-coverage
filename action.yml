@@ -1,0 +1,32 @@
+# action.yml
+name: "Pytest Coverage Action"
+description: "Use Pytest to show test coverage."
+author: "Lyle Okoth"
+inputs:
+  codedirectory:
+    description: "The directory containing the source code."
+    default: "The project root i.e '.'"
+  testdirectory:
+    description: "The directory containing the tests."
+    default: "tests\\"
+  pycovconfigfile:
+    description: "The pycov configuration file"
+    default: ".coveragerc"
+  pytestconfigfile:
+    description: "The pytest configuration file."
+    default: "setup.cfg"
+  github_token:
+    description: "The GitHub Token."
+    default: ""
+  oryks_token:
+    description: "The Code Coverage token."
+    default: ""
+outputs:
+  testcoverage:
+    description: "Whether or not the action was successful."
+runs:
+  using: "docker"
+  image: "Dockerfile"
+branding:
+  icon: 'award'
+  color: 'green'

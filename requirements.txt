@@ -1,0 +1,8 @@
+importlib_metadata
+numpy
+pandas
+pytest
+pytest-cov
+requests
+tabulate
+typing_extensions

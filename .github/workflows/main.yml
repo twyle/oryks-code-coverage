@@ -1,0 +1,25 @@
+on: [push]
+
+jobs:
+
+  Build:
+    runs-on: ubuntu-latest
+    name: A job to test the oryks code coverage action
+
+    steps:
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: oryks code coverage action
+        id: selftest
+        uses: twyle/oryks-code-coverage@v0.17.1
+        with:
+          codedirectory: src/
+          testdirectory: tests/
+          github_token: ${{ github.token }}
+          oryks_token: ${{ secrets.ORYKS_TOKEN }}
+
+      - name: action output
+        run: |
+          echo "${{ steps.selftest.outputs.testcoverage }}"
